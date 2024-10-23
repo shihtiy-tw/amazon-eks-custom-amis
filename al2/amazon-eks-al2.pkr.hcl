@@ -1,7 +1,7 @@
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 
-  ami_name = "${var.ami_name_prefix}-${var.eks_version}-${local.timestamp}"
+  ami_name = "eks-lab-${var.ami_name_prefix}-${var.eks_version}-${local.timestamp}"
 
   tags = {
     SourceAMI = "{{ .SourceAMI }}"

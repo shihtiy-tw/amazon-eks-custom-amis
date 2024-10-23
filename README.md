@@ -35,13 +35,22 @@ packer init -upgrade .
 To build an amd64 based architecture AMI:
 
 ```sh
-packer build -var-file=al2_amd64.pkrvars.hcl -var 'subnet_id=subnet-01abc23' .
+packer build -var-file=al2_amd64.pkrvars.hcl .
 ```
 
 To build an arm64 based architecture AMI:
 
 ```sh
-packer build -var-file=al2_arm64.pkrvars.hcl -var 'subnet_id=subnet-01abc23' .
+packer build -var-file=al2_arm64.pkrvars.hcl .
+```
+
+Other common variable:
+
+```sh
+packer build -var-file=al2_amd64.pkrvars.hcl \
+  -var "region=us-east-1" \
+  -var "eks_version=1.29" \
+  .
 ```
 
 ## Use AMI
